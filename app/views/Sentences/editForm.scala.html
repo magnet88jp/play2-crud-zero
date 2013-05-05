@@ -1,0 +1,27 @@
+@(id: Long, sentenceForm: Form[Sentence])
+
+@import helper._
+
+@main("edit") {
+
+  <h1>Edit sentence</h1>
+  
+  @form(routes.Sentences.update(id)) {
+    <fieldset>
+      @inputText(sentenceForm("name"), '_label -> "Sentence name")
+      @inputText(sentenceForm("createDate"), '_label -> "Create date")
+      @inputText(sentenceForm("updateDate"), '_label -> "Update date")
+    </fieldset>
+
+    <div class="actions">
+      <input type="submit" value="Save this sentence" class="btn primary"> or 
+        <a href="@routes.Sentences.list()" class="btn">Cancel</a>
+    </div>
+
+  }
+
+  @form(routes.Sentences.delete(id), 'class -> "topRight") {
+    <input type="submit" value="Delete this sentence" class="btn danger">
+  }
+
+}

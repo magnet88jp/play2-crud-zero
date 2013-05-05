@@ -1,0 +1,20 @@
+@(sentenceForm: Form[Sentence])
+
+@import helper._
+
+@main("create") {
+    
+  <h1>Add a computer</h1>
+
+  @form(routes.Sentences.save()) {
+    <fieldset>
+      @inputText(sentenceForm("name"), '_label -> "Sentence name")
+    </fieldset>
+
+    <div class="actions">
+      <input type="submit" value="Create this computer" class="btn primary"> or 
+      <a href="@routes.Sentences.list()" class="btn">Cancel</a> 
+    </div>
+  }
+
+}

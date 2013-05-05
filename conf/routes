@@ -15,3 +15,15 @@ POST    /accounts                   controllers.Accounts.save
 GET     /accounts/:id               controllers.Accounts.edit(id:Long)
 POST    /accounts/:id               controllers.Accounts.update(id:Long)
 POST    /accounts/:id/delete        controllers.Accounts.delete(id:Long)
+
+# Accounts
+GET     /sentences                  controllers.Sentences.list(page:Int ?= 0, orderBy:Int ?= 2, filter ?= "")
+GET     /sentences/new              controllers.Sentences.create
+POST    /sentences                  controllers.Sentences.save
+GET     /sentences/:id              controllers.Sentences.edit(id:Long)
+POST    /sentences/:id              controllers.Sentences.update(id:Long)
+POST    /sentences/:id/delete       controllers.Sentences.delete(id:Long)
+
+# FaqEditor
+GET     /faqeditor                  controllers.FaqEditor.list(page:Int ?= 0, orderBy:Int ?= 2, filter ?= "")
+POST    /faqeditor                  controllers.FaqEditor.save

@@ -1,0 +1,16 @@
+@(msg: String, sentences: List[Sentence])
+
+@main("Home") {
+
+  <h1>Welcome @msg!</h1>
+
+  <div id="actions">
+    <a class="btn success" id="add" href="@routes.Sentences.create()">Add a new sentence</a>
+  </div>
+
+  <ul> 
+  @for(sentence <- sentences) {
+    <li>@sentence.toString()<a href="@routes.Sentences.edit(sentence.id)">@sentence.name</a></li>
+  }
+  </ul>
+}

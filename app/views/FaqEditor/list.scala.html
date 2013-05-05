@@ -1,0 +1,26 @@
+@(msg: String, sentences: List[Sentence], sentenceForm: Form[Sentence])
+
+@import helper._
+
+@main("Home") {
+
+  <h1>Welcome @msg!</h1>
+
+  <ul> 
+  @for(sentence <- sentences) {
+    <li>@sentence.toString() @sentence.name</li>
+  } 
+  </ul>
+
+  @form(routes.FaqEditor.save()) {
+    <fieldset>
+      @inputText(sentenceForm("name"), '_label -> "Sentence name")
+    </fieldset>
+
+    <div class="actions">
+      <input type="submit" value="Create this computer" class="btn primary"> or 
+      <a href="@routes.FaqEditor.list()" class="btn">Cancel</a> 
+    </div>
+  }
+
+}
